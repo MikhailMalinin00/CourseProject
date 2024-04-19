@@ -1,0 +1,40 @@
+﻿<Window x:Class="CourseProject.Pages.SetRating"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Pages"
+        mc:Ignorable="d"
+        Title="Оценить фильм" Height="230" Width="360"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Style="{DynamicResource BlackAndWhite}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1.4*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Оцените фильм!"
+           Grid.Row="0" FontSize="20"
+           Style="{DynamicResource text}"
+           HorizontalAlignment="Center"
+           Margin="10" FontWeight="DemiBold"/>
+
+        <TextBlock Text="Выберите оценку (от 1 до 10):"
+           Style="{DynamicResource text}" Grid.Row="1"
+           FontSize="16" Margin="15 15 0 0"/>
+
+        <TextBox x:Name="inputRating" Grid.Row="1"
+         Width="50" Height="30" VerticalAlignment="Center" 
+         HorizontalAlignment="Right" Margin="0 0 52 4"
+         Style="{DynamicResource searchTextBoxMain}"
+         MaxLength="2" FontSize="16" Padding="2 3 2 0" Text="{Binding Rating}"/>
+
+        <Button Name="setRating" Click="SetRating_Click" 
+        Style="{DynamicResource signInButton}"
+        Grid.Row="2" Height="40" Width="180"
+        Content="Оценнить"/>
+    </Grid>
+</Window>

@@ -1,0 +1,82 @@
+﻿<Window x:Class="CourseProject.Pages.AddSchedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Pages"
+        mc:Ignorable="d"
+        Title="Добавить расписание" Height="450" Width="800">
+    <Grid Style="{DynamicResource BlackAndWhite}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+
+
+
+        <Button Width="0" Height="0" IsCancel="True" 
+        Click="escButton_Click" />
+
+
+
+        <TextBlock FontSize="23" Style="{DynamicResource text}"
+           Text="Добавить расписание"
+           HorizontalAlignment="Center"
+           Margin="10" FontWeight="DemiBold"/>
+
+        <TextBlock Text="Название фильма" 
+           Style="{DynamicResource text}"
+           FontSize="18" Margin="30 0 0 0"
+           Grid.Row="1" VerticalAlignment="Center"/>
+
+        <TextBlock Text="{Binding Title}" 
+           Style="{DynamicResource text}"
+           Grid.Row="1" FontSize="18"
+           Margin="190 0 0 0" VerticalAlignment="Center"/>
+
+        <TextBlock Style="{DynamicResource text}" 
+           Text="Введите дату (ГГГГ-ММ-ДД)"
+           Grid.Row="2" FontSize="18" Margin="30 0 0 0"
+           VerticalAlignment="Center"/>
+
+        <TextBox x:Name="dateInput" 
+         Style="{DynamicResource searchTextBoxMain}"
+         Width="120" Height="30" VerticalAlignment="Center"
+         Grid.Row="2" Margin="0 0 26 0" 
+         MaxLength="10" FontSize="18" Padding="3 1 3 0"/>
+
+        <TextBlock Style="{DynamicResource text}" 
+           Text="Введите время (ЧЧ:ММ)"
+           Grid.Row="3" FontSize="18" Margin="30 0 0 0"
+           VerticalAlignment="Center"/>
+
+        <TextBox x:Name="timeInput" 
+         Style="{DynamicResource searchTextBoxMain}"
+         Width="80" Height="30" VerticalAlignment="Center"
+         Grid.Row="3" Margin="0 0 126 0" 
+         MaxLength="5" FontSize="18" Padding="3 1 3 0"/>
+
+        <TextBlock Style="{DynamicResource text}" 
+           Text="Введите кол-во мест"
+           Grid.Row="4" FontSize="18" Margin="30 0 0 0"
+           VerticalAlignment="Center"/>
+
+        <TextBox x:Name="seatsInput" 
+         Style="{DynamicResource searchTextBoxMain}"
+         Width="80" Height="30" VerticalAlignment="Center"
+         Grid.Row="4" Margin="0 0 178 0" 
+         MaxLength="2" FontSize="18" Padding="3 1 3 0"/>
+
+        <Button Content="Добавить расписание"
+        Style="{DynamicResource signInButton}"
+        Width="230" Height="46"
+        FontSize="17"
+        Name="addSchedule" Click="addSchedule_Click"
+        Grid.Row="5"/>
+    </Grid>
+</Window>

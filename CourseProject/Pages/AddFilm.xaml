@@ -1,0 +1,159 @@
+﻿<Window x:Class="CourseProject.Pages.AddFilm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Pages"
+        mc:Ignorable="d"
+        Title="Добавить фильм" Height="450" Width="400"
+        MinHeight="450" MinWidth="300"
+        WindowStartupLocation="Manual" Top="170" Left="400">
+
+    <Grid Name="addingGrid" Style="{DynamicResource blackBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Надпись "Добавить фильм"-->
+        <TextBlock 
+     Grid.Row="0" Text="Добавить фильм" 
+     HorizontalAlignment="Center" FontSize="20"
+     VerticalAlignment="Center"
+     Grid.ColumnSpan="2"
+     Style="{DynamicResource text}">
+        </TextBlock>
+
+        <!--Название-->
+        <TextBlock
+    Grid.Row="1" Text="Название"
+    HorizontalAlignment="Left" Margin="10 5 0 0"
+    Style="{DynamicResource text}">
+        </TextBlock>
+        <TextBox
+    Grid.Row="1" Height="20" Width="100"
+    HorizontalAlignment="Left" Margin="10 10 0 0"
+    Name="filmName" Text="{Binding Title}"
+    Style="{DynamicResource searchTextBoxMain}">
+        </TextBox>
+
+        <!--Название-->
+        <TextBlock
+Grid.Row="1" Grid.Column="1" Text="Ссылка на фото"
+HorizontalAlignment="Left" Margin="10 5 0 0"
+Style="{DynamicResource text}">
+        </TextBlock>
+        <TextBox
+Grid.Row="1" Grid.Column="1" Height="20" Width="210"
+HorizontalAlignment="Left" Margin="10 10 0 0"
+Name="photoLink" Text="{Binding Photo}"
+Style="{DynamicResource searchTextBoxMain}">
+        </TextBox>
+
+        <!--Режиссер-->
+        <TextBlock
+    Grid.Row="2" Text="Режиссер"
+    HorizontalAlignment="Left" Margin="10 5 0 0"
+    Style="{DynamicResource text}">
+        </TextBlock>
+        <TextBox
+    Grid.Row="2" Height="20" Width="100"
+    HorizontalAlignment="Left" Margin="10 10 0 0"
+    Name="filmDirector" Text="{Binding Director}"
+    Style="{DynamicResource searchTextBoxMain}">
+        </TextBox>
+
+        <!--Жанр-->
+        <TextBlock
+    Grid.Row="3" Text="Жанр"
+    HorizontalAlignment="Left" Margin="10 5 0 0"
+    Style="{DynamicResource text}"
+    FontSize="13">
+        </TextBlock>
+        <ComboBox 
+    Grid.Row="3" Height="22" Width="110"
+    HorizontalAlignment="Left" Margin="10 10 0 0" SelectedItem="{Binding Genres}"
+    Name="CmbGenre" IsEditable="True" 
+DisplayMemberPath="Genre" />
+
+        <!--Длительность-->
+        <Grid Name="durationGrid" Grid.Row="4" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+        Grid.Row="0" Text="Длительность"
+        HorizontalAlignment="Left" Margin="10 10 0 0"
+        Style="{DynamicResource text}"
+        FontSize="13">
+            </TextBlock>
+            <TextBox
+        Grid.Row="1" Height="20" Width="80"
+        HorizontalAlignment="Left" Margin="10 0 0 10"
+        Name="duration" MaxLength="3" Text="{Binding Duration}"
+        Style="{DynamicResource searchTextBoxMain}">
+            </TextBox>
+            <TextBlock 
+        Name="minutes" Text="минут" 
+        Grid.Row="1" Grid.Column="1"
+        Margin="0 4 0 0" HorizontalAlignment="Left"
+        FontSize="13" Style="{DynamicResource text}">
+            </TextBlock>
+        </Grid>
+
+        <TextBlock
+    Grid.Row="5" Text="Рейтинг"
+    HorizontalAlignment="Left" Margin="10 5 0 0"
+    Style="{DynamicResource text}">
+        </TextBlock>
+        <TextBox
+    Grid.Row="5" Height="20" Width="100"
+    HorizontalAlignment="Left" Margin="10 10 0 0"
+    Name="rating" Text="{Binding Rating}"
+    Style="{DynamicResource searchTextBoxMain}">
+        </TextBox>
+
+        <TextBlock
+Grid.Row="2" Text="Описание" Grid.Column="1"
+HorizontalAlignment="Left" Margin="10 5 0 0"
+Style="{DynamicResource text}">
+        </TextBlock>
+        <TextBox
+Grid.Row="2" Width="210" Grid.Column="1" TextWrapping="Wrap"
+HorizontalAlignment="Left" Margin="10,29,0,18"
+Name="filmDescription" Text="{Binding Description}"
+Style="{DynamicResource searchTextBoxMain}" Grid.RowSpan="4"/>
+
+        <!--Кнопка добавления-->
+        <Button Grid.Row="6" Name="addFilmButton" Width="110" 
+        Height="34" Content="Добавить"
+        Click="addFilmButton_Click" FontWeight="DemiBold"
+        Style="{DynamicResource buttonUI}" Margin="30 0 0 0">
+        </Button>
+
+        <!--Кнопка очистки-->
+        <Button Grid.Row="7" Name="deleteButton" 
+        Grid.Column="1" Width="130" 
+        Height="34" Content="Очистить форму"
+        Click="deleteButton_Click" Style="{DynamicResource buttonUI}"
+        FontWeight="DemiBold">
+        </Button>
+
+    </Grid>
+</Window>

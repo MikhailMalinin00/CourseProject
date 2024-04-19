@@ -1,0 +1,100 @@
+﻿<Page x:Class="CourseProject.Pages.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseProject.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="528" d:DesignWidth="408"
+      Title="Регистрация">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="163"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="1.7*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--Текст "Войти\Регистрация"-->
+        <Button Content="Вход" Style="{DynamicResource loginRegText}" 
+        Grid.Row="0" HorizontalAlignment="Center" 
+        FontWeight="Light" Grid.Column="0"
+        Name="loginButton" Click="loginButton_Click" 
+        Margin="60 50 0 0"/>
+        <Button Content="Регистрация" Style="{DynamicResource loginRegText}" 
+        Grid.Row="0" HorizontalAlignment="Center"
+        Margin="0 50 60 0" FontWeight="DemiBold" 
+        Grid.Column="1" />
+
+        <!--Ввод имени-->
+        <TextBlock Text="Имя" Style="{DynamicResource text}" Grid.Row="1"
+           HorizontalAlignment="Center" FontSize="17"/>
+        <TextBox Name="nameText" Style="{DynamicResource textboxtest}"
+         Grid.Row="1" Width="150" HorizontalAlignment="Center"
+         Margin="0 10 0 0"/>
+
+        <!--Ввод фамилии-->
+        <TextBlock Text="Фамилия" Style="{DynamicResource text}" Grid.Row="1"
+           HorizontalAlignment="Center" FontSize="17" 
+           Grid.Column="1"/>
+        <TextBox Name="surnameText" Style="{DynamicResource textboxtest}"
+         Grid.Row="1" Width="150"
+         HorizontalAlignment="Center" Grid.Column="1"
+         Margin="0 10 0 0"/>
+
+        <!--Ввод логина-->
+        <TextBlock Text="Логин" Style="{DynamicResource text}" Grid.Row="2"
+           HorizontalAlignment="Center" FontSize="17"/>
+        <TextBox Name="loginText" Style="{DynamicResource textboxtest}"
+         Grid.Row="2" Width="150" HorizontalAlignment="Center"
+         Margin="0 10 0 0"/>
+
+        <!--Ввод пароля-->
+        <TextBlock Text="Пароль" Style="{DynamicResource text}" Grid.Row="2"
+           HorizontalAlignment="Center" FontSize="17" 
+           Grid.Column="1"/>
+        <Border CornerRadius="10" BorderThickness="1" Width="150"
+        Grid.Row="2" Grid.Column="1" Height="Auto" BorderBrush="LightGray"
+        HorizontalAlignment="Center" VerticalAlignment="Center"
+        Margin="0 10 0 0" Background="White">
+            <PasswordBox Name="passwordText" Style="{DynamicResource passwordboxtest}"
+                 Grid.Row="2" Width="150"
+                 HorizontalAlignment="Center" Grid.Column="1"
+                 Background="Transparent" BorderThickness="0"
+                 Padding="7 2 7 0" />
+        </Border>
+
+
+        <!--Ввод почты-->
+        <TextBlock Text="E-mail" Style="{DynamicResource text}" Grid.Row="3"
+           HorizontalAlignment="Center" FontSize="17"/>
+        <TextBox Name="emailText" Style="{DynamicResource textboxtest}"
+         Grid.Row="3" Width="150" HorizontalAlignment="Center"
+         Margin="0 10 0 0"/>
+
+        <!--Ввод номера телефона-->
+        <TextBlock Text="Телефон" Style="{DynamicResource text}" Grid.Row="3"
+           HorizontalAlignment="Center" FontSize="17" 
+           Grid.Column="1"/>
+        <TextBox Name="phoneText" Style="{DynamicResource textboxtest}"
+         Grid.Row="3" Width="150"
+         HorizontalAlignment="Center" Grid.Column="1"
+         Margin="0 10 0 0"/>
+
+
+
+        <!--Кнопка "Зарегистрироваться"-->
+        <Button Style="{DynamicResource signInButton}" Content="Зарегистрироваться"
+        Grid.Row="4" Margin="0,0,0,49" HorizontalAlignment="Center"
+        Name="signUpButton" Width="190" Height="45" Grid.ColumnSpan="2"
+        Click="signUpButton_Click"/>
+    </Grid>
+</Page>

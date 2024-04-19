@@ -1,0 +1,196 @@
+﻿<Page x:Class="CourseProject.Pages.AdminPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseProject.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" IsVisibleChanged="Page_IsVisibleChanged"
+      Title="Панель администратора">
+
+    <Grid Name="mainGrid" Style="{DynamicResource BlackAndWhite}">
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="60"></RowDefinition>-->
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="3.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+        <!--Боковое меню-->
+        <Grid Name="leftMenu"
+          Grid.Row="1" Grid.Column="0"
+          Style="{DynamicResource gradientBack}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+
+
+            <!--Поиск-->
+            <TextBlock Text="Поиск" 
+                   FontSize="14"
+                   HorizontalAlignment="Center"
+                   Margin="3" 
+                   Foreground="White"/>
+
+            <TextBox Width="140" Height="25" x:Name="searchBox"
+                 Grid.Row="0" VerticalAlignment="Top" 
+                 Margin="0 27 0 0"
+                 Padding="2 2 2 0"
+                 TextChanged="searchBox_TextChanged">
+            </TextBox>
+
+
+            <Button Name="addButton" Grid.Row="1" Width="140"
+                Height="30" Click="addButton_Click" 
+                Template="{DynamicResource templateAdd}" >
+            </Button>
+
+            <Button Name="deleteButton" Grid.Row="4" Width="140"
+                Height="30" Click="deleteButton_Click"
+                Template="{DynamicResource templateDel}" >
+            </Button>
+
+            <Button Name="showButton" Grid.Row="5" Width="140"
+                Height="30" Click="showButton_Click"
+                Template="{DynamicResource templateAll}" >
+            </Button>
+
+
+            <TextBlock Text="Отфильтровать" 
+                   FontSize="14"
+                   HorizontalAlignment="Center"
+                   Margin="0"
+                   Grid.Row="6"
+                   Foreground="White"/>
+
+
+            <ComboBox Name="comboBoxFilterSelect"
+            Grid.Row="6" Grid.Column="0"
+            HorizontalAlignment="Center" VerticalAlignment="Top"
+            Margin="0 25 0 0"
+            Width="130" Height="25"
+            
+            SelectionChanged="comboBoxFilterSelect_SelectionChanged"
+            DisplayMemberPath="Genre">
+            </ComboBox>
+
+        </Grid>
+
+
+
+        <ListView Name="tableView" Grid.Row="1" Grid.Column="1"
+              Background="Transparent"
+              ScrollViewer.HorizontalScrollBarVisibility="Auto"
+              ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Width="130" Header="Названние фильма">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" 
+                                       TextWrapping="Wrap" 
+                                       FontSize="16"
+                                       Foreground="#99aab5" 
+                                       Margin="10,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                    <GridViewColumn  Width="125" Header="Режиссер">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Director}" 
+                                       TextWrapping="Wrap" 
+                                       FontSize="16"
+                                       Foreground="#99aab5" 
+                                       Margin="10,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                    <GridViewColumn  Width="170" Header="Жанр">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Genres.Genre}" 
+                                       TextWrapping="Wrap" 
+                                       FontSize="16"
+                                       Foreground="#99aab5" 
+                                       Margin="10,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+
+                    <GridViewColumn  Width="90" Header="Длительность">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Duration}" 
+                                       TextWrapping="Wrap" 
+                                       FontSize="16"
+                                       Foreground="#99aab5" 
+                                       Margin="10,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+
+                    <GridViewColumn  Width="90" Header="Рейтинг">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Rating}" 
+                                       TextWrapping="Wrap" 
+                                       FontSize="16"
+                                       Foreground="#99aab5" 
+                                       Margin="10,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+
+                    <GridViewColumn  Width="100" Header="Фото">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Stretch="UniformToFill" Width="50" Height="50" Margin="30 0 0 0" HorizontalAlignment="Center">
+                                    <Image.Source>
+                                        <Binding Path="Photo" >
+                                            <Binding.TargetNullValue>
+                                                <ImageSource>/Resources/DefaultPhoto.png</ImageSource>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Расписание" Width="160">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="AddScheduleButton" Template="{DynamicResource templateAddSchedule}" Click="AddSchedule_Button" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

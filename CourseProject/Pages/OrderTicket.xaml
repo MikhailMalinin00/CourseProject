@@ -1,0 +1,78 @@
+﻿<Window x:Class="CourseProject.Pages.OrderTicket"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Pages"
+        mc:Ignorable="d"
+        Title="Заказать  билет" Height="260" Width="390"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Style="{DynamicResource BlackAndWhite}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.3*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1.5*" />
+        </Grid.RowDefinitions>
+
+        <!--Название фильма-->
+        <TextBlock Name="nameMovie" Text="{Binding Title}"
+            HorizontalAlignment="Center"
+            Grid.Row="0"
+            FontSize="18" FontWeight="DemiBold"
+            Style="{DynamicResource text}"
+            Margin="0 20 0 0"/>
+
+        <!--Дата и время (текст)-->
+        <TextBlock Name="dateTimeText" Grid.Row="1"
+            Style="{DynamicResource text}"
+            HorizontalAlignment="Left"
+            Text="Время сеанса:"
+            Margin="20 10 0 0" FontSize="15"/>
+
+        <!--Сама дата и время-->
+        <TextBlock Name="dateTicket" Text="{Binding DateTime}"
+            Grid.Row="1" Style="{DynamicResource text}"
+            HorizontalAlignment="Left" Margin="121 10 0 0"
+            FontSize="15"/>
+
+        <!--Доступно мест (текст)-->
+        <TextBlock Name="availableText" Grid.Row="2"
+            Style="{DynamicResource text}"
+            HorizontalAlignment="Left"
+            Text="Свободно мест:"
+            Margin="20 10 0 0" FontSize="15"/>
+
+        <!--Сколько мест доступно (число)-->
+        <TextBlock Name="aviableSeats" Text="{Binding AvailableSeat}"
+            Grid.Row="2" Style="{DynamicResource text}"
+            HorizontalAlignment="Left" Margin="134 10 0 0"
+            FontSize="15"/>
+
+        <!--Выберите сколько забронить (текст)-->
+        <TextBlock Text="Выберите, сколько мест забронировать" 
+            Grid.Row="3" Style="{DynamicResource text}"
+            Margin="20 10 0 0" FontSize="15"/>
+
+        <!--Форма выбора кол-ва мест-->
+        <TextBox Name="selectCountOfSeats" Grid.Row="3"
+          Height="22" Width="50"
+          Margin="0 5 21 0" HorizontalAlignment="Right"
+          Style="{DynamicResource searchTextBoxMain}"
+          Padding="2 1 2 0" FontSize="13"
+          Foreground="White"
+          MaxLength="3"/>
+
+        <!--Кнопка заказа-->
+        <Button Name="orderSomeTickets" 
+         Style="{DynamicResource buttonUI}"
+         Content="Заказать билет"
+         Grid.Row="4" 
+         Width="150"
+         Height="35"
+         Click="orderSomeTickets_Click"
+         FontSize="14"/>
+    </Grid>
+</Window>

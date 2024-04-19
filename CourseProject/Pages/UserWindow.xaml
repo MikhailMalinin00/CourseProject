@@ -1,0 +1,53 @@
+﻿<Window x:Class="CourseProject.Pages.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Pages"
+        mc:Ignorable="d"
+        Title="Окно пользователя" MinHeight="650" MinWidth="1200" Height="675" Width="1200">
+    <Grid Style="{DynamicResource BlackAndWhite}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+
+        <!--Header-->
+        <Grid Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.2*"/>
+                <ColumnDefinition Width="1.7*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Resources/logo_png_crop.png" MaxWidth="300"
+               HorizontalAlignment="Left" Margin="15 15 0 15"
+               Grid.Column="0"/>
+
+            <Button Content="Афиша" 
+                Style="{DynamicResource headerText}"
+                Margin="10,15,0,15" Padding="12"
+                Grid.Column="2" 
+                Name="afisha" Click="afisha_Click"/>
+            <Button Content="О нас" 
+                Style="{DynamicResource headerText}"
+                Margin="169,15,0,15" Padding="12"
+                Grid.Column="2"
+                Click="aboutUs_Click" Grid.ColumnSpan="2"/>
+            <Button Content="Личный кабинет" 
+                Style="{DynamicResource headerText}"
+                Margin="0,15,0,15" Padding="12"
+                Grid.Column="3"
+                Name="cabinet"
+                Click="cabinet_Click" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="203"/>
+        </Grid>
+
+        <Frame Source="/Pages/WelcomePage.xaml" Grid.Row="1" 
+       NavigationUIVisibility="Hidden" Name="frameMain"/>
+
+
+    </Grid>
+</Window>

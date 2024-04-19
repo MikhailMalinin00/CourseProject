@@ -1,0 +1,60 @@
+﻿<Page x:Class="CourseProject.Pages.AuthLog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseProject.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="408"
+      Title="Авторизация">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--Текст "Войти\Регистрация"-->
+        <Button Content="Вход" Style="{DynamicResource loginRegText}" 
+        Grid.Row="0" HorizontalAlignment="Center" 
+        Margin="60 50 0 0" Grid.Column="0"/>
+        <Button Content="Регистрация" Style="{DynamicResource loginRegText}" 
+        FontWeight="Light" Grid.Row="0" HorizontalAlignment="Center"
+        Margin="0 50 60 0" Name="register" Click="register_Click"
+        Grid.Column="1"/>
+
+        <!--Ввод логина-->
+        <TextBlock Text="Логин" Style="{DynamicResource text}" Grid.Row="1"
+           HorizontalAlignment="Center" FontSize="17" Margin="0 0 0 0" 
+           Grid.ColumnSpan="2"/>
+        <TextBox Name="loginTextBox" Style="{DynamicResource textboxtest}"
+         Grid.Row="1" Grid.ColumnSpan="2" />
+
+        <!--Ввод пароля-->
+        <TextBlock Text="Пароль" Style="{DynamicResource text}" Grid.Row="2"
+           HorizontalAlignment="Center" FontSize="17" Margin="0 0 0 30"
+           Grid.ColumnSpan="2" />
+        <Border CornerRadius="10" BorderThickness="1" Width="180"
+        Grid.Row="2"  Height="Auto" BorderBrush="LightGray"
+        HorizontalAlignment="Center" VerticalAlignment="Center"
+        Background="White" Grid.ColumnSpan="2">
+            <PasswordBox Name="passwordText" Style="{DynamicResource passwordboxtest}"
+                 Grid.Row="2" Width="180"
+                 HorizontalAlignment="Center"
+                 Background="Transparent" BorderThickness="0"
+                 Padding="8 2 7 0" Grid.ColumnSpan="2" />
+        </Border>
+
+        <!--Кнопка "Войти"-->
+        <Button Style="{DynamicResource signInButton}" Content="Войти"
+        Grid.Row="3" Margin="0 0 0 100" HorizontalAlignment="Center"
+        Name="signInButton" Click="signInButton_Click" Grid.ColumnSpan="2"/>
+    </Grid>
+</Page>
